@@ -11,7 +11,7 @@ PDF  := MDAnalysis_SciPy_2016.pdf
 
 TOPDIR  := $(shell git rev-parse --show-toplevel)
 
-.phony: all pdf see rebase
+.phony: all pdf see rebase amend
 
 all: pdf
 
@@ -32,3 +32,5 @@ rebase:
 	-rm $(PDF)
 	$(MAKE) $(PDF) && git add $(PDF)
 
+amend:
+	git commit --amend --date="`date`" -C HEAD
